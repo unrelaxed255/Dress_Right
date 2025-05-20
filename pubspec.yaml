@@ -1,0 +1,41 @@
+name: dress_right
+description: "Uniform inspection and SRR tracking tool for USAF personnel."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.1.0
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_native_splash: ^2.3.6
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/images/bg_star.png
+
+flutter_native_splash:
+  color: "#000000"
+  image: assets/images/dress_right_text.png
+  background_image: assets/images/splash_background.png
+
+  android_12:
+    color: "#000000"
+    image: assets/images/dress_right_text.png
+    icon_background_color: "#000000"
+    branding: null
