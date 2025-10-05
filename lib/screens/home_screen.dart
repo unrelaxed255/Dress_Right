@@ -3,7 +3,10 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:dress_right/utils/color_utils.dart';
 import 'package:dress_right/screens/settings_screen.dart';
+import 'package:dress_right/screens/rosters_screen.dart';
+import 'package:dress_right/screens/inspections_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -157,8 +160,8 @@ class _HomeScreenState extends State<HomeScreen>
                   ),
                   radius: 1.5 + (_cloudAnimation.value * 0.2),
                   colors: [
-                    Colors.black.withOpacity(0.1),
-                    Colors.black.withOpacity(0.3),
+                    Colors.black.withFraction(0.1),
+                    Colors.black.withFraction(0.3),
                     Colors.transparent,
                   ],
                   stops: const [0.0, 0.4, 1.0],
@@ -178,11 +181,11 @@ class _HomeScreenState extends State<HomeScreen>
                   begin: Alignment(-0.5 + (_parallaxAnimation.value * 0.8), -1.0),
                   end: Alignment(0.5 + (_parallaxAnimation.value * 0.8), 1.0),
                   colors: [
-                    Colors.white.withOpacity(0.05),
+                    Colors.white.withFraction(0.05),
                     Colors.transparent,
-                    Colors.white.withOpacity(0.08),
+                    Colors.white.withFraction(0.08),
                     Colors.transparent,
-                    Colors.white.withOpacity(0.03),
+                    Colors.white.withFraction(0.03),
                   ],
                   stops: const [0.0, 0.2, 0.5, 0.8, 1.0],
                 ),
@@ -208,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen>
                       borderRadius: BorderRadius.circular(20),
                       gradient: RadialGradient(
                         colors: [
-                          Colors.white.withOpacity(0.1),
+                          Colors.white.withFraction(0.1),
                           Colors.transparent,
                         ],
                       ),
@@ -226,7 +229,7 @@ class _HomeScreenState extends State<HomeScreen>
                       borderRadius: BorderRadius.circular(15),
                       gradient: RadialGradient(
                         colors: [
-                          Colors.white.withOpacity(0.08),
+                          Colors.white.withFraction(0.08),
                           Colors.transparent,
                         ],
                       ),
@@ -244,7 +247,7 @@ class _HomeScreenState extends State<HomeScreen>
                       borderRadius: BorderRadius.circular(18),
                       gradient: RadialGradient(
                         colors: [
-                          Colors.white.withOpacity(0.06),
+                          Colors.white.withFraction(0.06),
                           Colors.transparent,
                         ],
                       ),
@@ -266,11 +269,11 @@ class _HomeScreenState extends State<HomeScreen>
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Colors.blue.withOpacity(0.02 + (_cloudAnimation.value * 0.01)),
+                    Colors.blue.withFraction(0.02 + (_cloudAnimation.value * 0.01)),
                     Colors.transparent,
-                    Colors.white.withOpacity(0.01 + (_parallaxAnimation.value * 0.01)),
+                    Colors.white.withFraction(0.01 + (_parallaxAnimation.value * 0.01)),
                     Colors.transparent,
-                    Colors.black.withOpacity(0.1 + (_cloudAnimation.value * 0.03)),
+                    Colors.black.withFraction(0.1 + (_cloudAnimation.value * 0.03)),
                   ],
                   stops: const [0.0, 0.3, 0.5, 0.7, 1.0],
                 ),
@@ -289,8 +292,8 @@ class _HomeScreenState extends State<HomeScreen>
                   center: Alignment(-0.8 + (_parallaxAnimation.value * 1.6), -0.5),
                   radius: 2.0,
                   colors: [
-                    Colors.orange.withOpacity(0.02),
-                    Colors.blue.withOpacity(0.01),
+                    Colors.orange.withFraction(0.02),
+                    Colors.blue.withFraction(0.01),
                     Colors.transparent,
                   ],
                   stops: const [0.0, 0.3, 1.0],
@@ -367,11 +370,11 @@ class _HomeScreenState extends State<HomeScreen>
                 children: [
                   _buildBubbleButton(
                     icon: Icons.grid_view,
-                    label: 'Workcenter Management',
+                    label: 'Rosters',
                     baseColor: const Color(0xFF192841),
                     highlightColor: const Color(0xFF3A8DFF),
                     accentColor: Colors.white,
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const RostersScreen())),
                   ),
                   const SizedBox(height: 16),
                   _buildBubbleButton(
@@ -380,7 +383,7 @@ class _HomeScreenState extends State<HomeScreen>
                     baseColor: const Color(0xFF0A1E3D),
                     highlightColor: const Color(0xFF0066CC),
                     accentColor: goldColor,
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const InspectionsScreen())),
                   ),
                   const SizedBox(height: 32),
                 ],
@@ -432,11 +435,11 @@ class _HomeScreenState extends State<HomeScreen>
                   children: [
                     _buildBubbleButton(
                       icon: Icons.grid_view,
-                      label: 'Workcenter Management',
+                      label: 'Rosters',
                       baseColor: const Color(0xFF192841),
                       highlightColor: const Color(0xFF3A8DFF),
                       accentColor: Colors.white,
-                      onPressed: () {},
+                    onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const RostersScreen())),
                     ),
                     const SizedBox(height: 16),
                     _buildBubbleButton(
@@ -445,7 +448,7 @@ class _HomeScreenState extends State<HomeScreen>
                       baseColor: const Color(0xFF0A1E3D),
                       highlightColor: const Color(0xFF0066CC),
                       accentColor: goldColor,
-                      onPressed: () {},
+                    onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const InspectionsScreen())),
                     ),
                   ],
                 ),

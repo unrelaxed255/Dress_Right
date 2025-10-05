@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
-  // Shared
   static const error = Color(0xFFD32F2F);
   static const success = Color(0xFF388E3C);
   static const warning = Color(0xFFFFA000);
 
-  // Light Theme
   static const primaryLight = Color(0xFF0F2C5C);
   static const secondaryLight = Color(0xFF263F73);
   static const accentLight = Color(0xFFCC2936);
@@ -18,7 +16,6 @@ class AppColors {
   static const textPrimaryLight = Color(0xFF212121);
   static const textSecondaryLight = Color(0xFF757575);
 
-  // Dark Theme
   static const primaryDark = Color(0xFF0A1F40);
   static const secondaryDark = Color(0xFF1A2E56);
   static const accentDark = Color(0xFFAD2430);
@@ -30,32 +27,34 @@ class AppColors {
 
 class AppTheme {
   static ThemeData buildTheme({required bool isDark}) {
+    final base = isDark
+        ? ThemeData.dark(useMaterial3: true)
+        : ThemeData.light(useMaterial3: true);
     final colors = isDark ? _darkColors : _lightColors;
 
-    return ThemeData(
-      useMaterial3: true,
-      brightness: isDark ? Brightness.dark : Brightness.light,
-      scaffoldBackgroundColor: Colors.transparent,
-      colorScheme: ColorScheme(
-        brightness: isDark ? Brightness.dark : Brightness.light,
-        primary: colors['primary']!,
-        onPrimary: Colors.white,
-        secondary: colors['secondary']!,
-        onSecondary: Colors.white,
-        tertiary: colors['accent']!,
-        onTertiary: Colors.white,
-        error: AppColors.error,
-        onError: Colors.white,
-        background: colors['background']!,
-        onBackground: colors['textPrimary']!,
-        surface: colors['surface']!,
-        onSurface: colors['textPrimary']!,
-      ),
-      textTheme: GoogleFonts.openSansTextTheme().apply(
-        bodyColor: colors['textPrimary'],
-        displayColor: colors['textPrimary'],
-      ),
-      appBarTheme: const AppBarTheme(
+    final colorScheme = base.colorScheme.copyWith(
+      primary: colors['primary']!,
+      onPrimary: Colors.white,
+      secondary: colors['secondary']!,
+      onSecondary: Colors.white,
+      tertiary: colors['accent']!,
+      onTertiary: Colors.white,
+      surface: colors['surface']!,
+      onSurface: colors['textPrimary']!,
+      error: AppColors.error,
+      onError: Colors.white,
+    );
+
+    final textTheme = GoogleFonts.openSansTextTheme(base.textTheme).apply(
+      bodyColor: colors['textPrimary']!,
+      displayColor: colors['textPrimary']!,
+    );
+
+    return base.copyWith(
+      colorScheme: colorScheme,
+      scaffoldBackgroundColor: colors['background']!,
+      textTheme: textTheme,
+      appBarTheme: base.appBarTheme.copyWith(
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.white,
         elevation: 0,
@@ -63,7 +62,7 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: colors['primary'],
+          backgroundColor: colors['primary']!,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
@@ -72,7 +71,7 @@ class AppTheme {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: colors['accent'],
+          foregroundColor: colors['accent']!,
           side: BorderSide(color: colors['accent']!),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(
@@ -82,18 +81,18 @@ class AppTheme {
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: colors['accent'],
+          foregroundColor: colors['accent']!,
         ),
       ),
-      cardTheme: CardTheme(
-        color: colors['surface'],
+      cardTheme: CardThemeData(
+        color: colors['surface']!,
         elevation: 2,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
       ),
-      dialogTheme: DialogTheme(
-        backgroundColor: colors['surface'],
+      dialogTheme: DialogThemeData(
+        backgroundColor: colors['surface']!,
         elevation: 24,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
@@ -120,7 +119,7 @@ class AppTheme {
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       ),
-      dividerTheme: DividerThemeData(
+      dividerTheme: base.dividerTheme.copyWith(
         color: isDark ? const Color(0xFF424242) : const Color(0xFFE0E0E0),
         thickness: 1,
         space: 1,
@@ -148,3 +147,4 @@ class AppTheme {
     'textSecondary': AppColors.textSecondaryDark,
   };
 }
+

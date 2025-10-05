@@ -1,0 +1,14 @@
+{
+  "id": "service_dress",
+  "name": "Service Dress",
+  "items": [
+    {"id": "coat_press", "key": "coat_press", "label": "Service coat pressed and free of lint"},
+    {"id": "ribbons", "key": "ribbons", "label": "Ribbons aligned and authorized"},
+    {"id": "name_tag", "key": "name_tag", "label": "Nametag level and centered"},
+    {"id": "rank_insignia", "key": "rank_insignia", "label": "Rank insignia correct and aligned"},
+    {"id": "shirt", "key": "shirt", "label": "Shirt pressed with proper creases"},
+    {"id": "tie", "key": "tie", "label": "Tie properly tied with centered dimple"},
+    {"id": "trousers", "key": "trousers", "label": "Trousers pressed with sharp crease"},
+    {"id": "shoes", "key": "shoes", "label": "Shoes shined and heels serviceable"}
+  ]
+}

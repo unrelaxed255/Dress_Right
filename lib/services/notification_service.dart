@@ -1,5 +1,6 @@
 // lib/services/notification_service.dart
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -53,7 +54,7 @@ class NotificationService {
   // Handle notification tap
   void _onDidReceiveNotificationResponse(NotificationResponse response) async {
     // Handle notification tap here
-    print('Notification tapped: ${response.payload}');
+    debugPrint('Notification tapped: ${response.payload}');
     // You can navigate to specific screens based on the payload
   }
 
@@ -68,7 +69,7 @@ class NotificationService {
       
       // Check if the scheduled time is in the future
       if (scheduledDate.isBefore(tz.TZDateTime.now(tz.local))) {
-        print('Cannot schedule notification in the past');
+        debugPrint('Cannot schedule notification in the past');
         return false;
       }
       
@@ -105,7 +106,7 @@ class NotificationService {
       
       return true;
     } catch (e) {
-      print('Error scheduling notification: $e');
+      debugPrint('Error scheduling notification: $e');
       return false;
     }
   }

@@ -1,0 +1,14 @@
+{
+  "id": "ocp",
+  "name": "OCP Uniform",
+  "items": [
+    {"id": "patrol_cap", "key": "patrol_cap", "label": "Patrol cap clean and serviceable"},
+    {"id": "blouse_fit", "key": "blouse_fit", "label": "Blouse fits properly and sleeves are not rolled"},
+    {"id": "rank_tapes", "key": "rank_tapes", "label": "Rank and name tapes secure, correct color"},
+    {"id": "us_flag", "key": "us_flag", "label": "US flag patch correct orientation and placement"},
+    {"id": "unit_patch", "key": "unit_patch", "label": "Authorized unit patches only"},
+    {"id": "trousers", "key": "trousers", "label": "Trousers bloused and free of strings"},
+    {"id": "boots", "key": "boots", "label": "Boots clean, laced, and serviceable"},
+    {"id": "accessories", "key": "accessories", "label": "Only authorized accessories visible"}
+  ]
+}

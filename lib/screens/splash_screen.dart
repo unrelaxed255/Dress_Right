@@ -2,11 +2,12 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:dress_right/utils/color_utils.dart';
 import 'package:dress_right/screens/home_screen.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -322,7 +323,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     // Calculate the logo position for initial display
     final screenHeight = MediaQuery.of(context).size.height;
     final initialLogoPosition = screenHeight * 0.35; // Center position
-    final finalLogoPosition = screenHeight * 0.10; // Final top position
     
     // Calculate current logo position and scale
     final currentLogoPosition = _animationsInitialized && _logoPositionAnimation != null
@@ -354,7 +354,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             // Black overlay that fades out
             Positioned.fill(
               child: Container(
-                color: Colors.black.withOpacity(bgOpacity),
+                color: Colors.black.withFraction(bgOpacity),
               ),
             ),
             
